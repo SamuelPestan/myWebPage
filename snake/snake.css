@@ -56,3 +56,25 @@ canvas {
     margin: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+/* Estilo básico para el botón de reinicio */
+#restartButton {
+    padding: 10px 20px;
+    background-color: #5100ff;
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: none; /* Inicialmente oculto */
+}
+
+#restartButton:hover {
+    background-color: #3700cc; /* Color más oscuro al pasar el ratón */
+}
+
+#restartButton:active {
+    transform: scale(0.98); /* Efecto de "presionar" el botón */
+}

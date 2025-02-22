@@ -112,7 +112,6 @@ function update() {
 }
 
 function gameOver() {
-    alert("¡Game Over! Pulsa OK para reiniciar.");
     snake = [{ x: 200, y: 200 }];
     direction = null;
     food = generateFood();
@@ -120,7 +119,23 @@ function gameOver() {
     scoreElement.textContent = score;
     gameRunning = true;
     gameStarted = false; // Resetear el estado del juego
+
+    // Mostrar el botón de reinicio
+    document.getElementById("restartButton").style.display = "block";   
 }
+
+document.getElementById("restartButton").addEventListener("click", () => {
+    // Reiniciar el juego
+    score = 0;
+    document.getElementById("score").textContent = score;
+    snake = [{ x: 200, y: 200 }];
+    direction = null;
+    food = generateFood();
+    gameStarted = true;
+
+    // Ocultar el botón de reinicio nuevamente
+    document.getElementById("restartButton").style.display = "none";
+});
 
 function gameLoop(timestamp) {
     if (gameRunning) {

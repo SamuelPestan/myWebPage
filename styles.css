@@ -52,3 +52,15 @@ nav a:hover {
     background-color: #3700cc;
     transform: translateY(-3px);
 }
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
