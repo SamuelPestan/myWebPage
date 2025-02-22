@@ -52,3 +52,19 @@ nav a:hover {
     background-color: #3700cc;
     transform: translateY(-3px);
 }
+
+/* Ajuste para pantallas móviles */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem; /* Reducir el tamaño del título en móviles */
+    }
+
+    #portada {
+        width: 150px; /* Hacer el logo más pequeño */
+    }
+
+    nav a {
+        padding: 10px 20px; /* Reducir el tamaño de los botones en móviles */
+        font-size: 1rem; /* Ajustar el tamaño de la fuente */
+    }
+}

@@ -17,6 +17,16 @@ canvas {
     border: 5px solid #5100ff;
     background-color: black;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+/* Media Query para pantallas grandes */
+@media (min-width: 768px) {
+    canvas {
+        width: 400px; /* Tamaño mayor en pantallas grandes */
+    }
 }
 
 .gameContainer {
