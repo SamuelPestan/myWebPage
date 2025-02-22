@@ -145,5 +145,37 @@ document.addEventListener("keydown", event => {
     if (event.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
 });
 
+// Control táctil
+let touchStartX = null;
+let touchStartY = null;
+
+document.addEventListener("touchstart", event => {
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+});
+
+document.addEventListener("touchmove", event => {
+    if (!touchStartX || !touchStartY) return;
+
+    const touchEndX = event.touches[0].clientX;
+    const touchEndY = event.touches[0].clientY;
+
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+
+    // Determinar la dirección del movimiento táctil
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0 && direction !== "LEFT") direction = "RIGHT";  // Deslizar a la derecha
+        if (diffX < 0 && direction !== "RIGHT") direction = "LEFT";  // Deslizar a la izquierda
+    } else {
+        if (diffY > 0 && direction !== "UP") direction = "DOWN";  // Deslizar hacia abajo
+        if (diffY < 0 && direction !== "DOWN") direction = "UP";  // Deslizar hacia arriba
+    }
+
+    // Evitar que el movimiento táctil continúe si el usuario deja de deslizar
+    touchStartX = null;
+    touchStartY = null;
+});
+
 // Iniciar el ciclo de animación
 requestAnimationFrame(gameLoop);
