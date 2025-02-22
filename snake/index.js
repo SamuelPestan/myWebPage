@@ -54,8 +54,15 @@ function draw() {
         ctx.drawImage(foodImage, food.x, food.y, size, size);
     }
 
-    ctx.fillStyle = "#5100ff";
+    // Dibujar la serpiente
     snake.forEach((segment, index) => {
+        // Cambiar el color de la cabeza de la serpiente (primer segmento)
+        if (index === 0) {
+            ctx.fillStyle = "#3d00cc";  // Cabeza más oscura
+        } else {
+            ctx.fillStyle = "#5100ff";  // Cuerpo de la serpiente
+        }
+
         ctx.fillRect(segment.x, segment.y, size, size);
         ctx.strokeStyle = "black";
         ctx.strokeRect(segment.x, segment.y, size, size);
