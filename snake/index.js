@@ -186,6 +186,23 @@ document.addEventListener("touchend", () => {
     touchStartY = null;
 });
 
+// evitar desplazamiento de la página
+document.body.addEventListener('touchmove', function(event) {
+    event.preventDefault();
+}, { passive: false });
+
+// Prevenir que se reinicie la página
+window.addEventListener('touchstart', function(event) {
+    if (event.touches.length > 1) {
+        event.preventDefault();  // Prevenir el gesto de pinch-to-zoom
+    }
+}, { passive: false });
+
+window.addEventListener('wheel', function(event) {
+    if (event.ctrlKey) {
+        event.preventDefault(); // Prevenir zoom con rueda del mouse
+    }
+}, { passive: false });
 
 // Iniciar el ciclo de animación
 requestAnimationFrame(gameLoop);
