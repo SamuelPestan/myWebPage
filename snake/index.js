@@ -204,5 +204,10 @@ window.addEventListener('wheel', function(event) {
     }
 }, { passive: false });
 
+// Prevenir que se mueva el canva
+canvas.addEventListener('touchstart', function(event) {
+    event.preventDefault();
+}, { passive: false });
+
 // Iniciar el ciclo de animación
 requestAnimationFrame(gameLoop);
