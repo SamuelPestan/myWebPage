@@ -163,19 +163,29 @@ document.addEventListener("touchmove", event => {
     const diffX = touchEndX - touchStartX;
     const diffY = touchEndY - touchStartY;
 
-    // Determinar la dirección del movimiento táctil
-    if (Math.abs(diffX) > Math.abs(diffY)) {
-        if (diffX > 0 && direction !== "LEFT") direction = "RIGHT";  // Deslizar a la derecha
-        if (diffX < 0 && direction !== "RIGHT") direction = "LEFT";  // Deslizar a la izquierda
-    } else {
-        if (diffY > 0 && direction !== "UP") direction = "DOWN";  // Deslizar hacia abajo
-        if (diffY < 0 && direction !== "DOWN") direction = "UP";  // Deslizar hacia arriba
-    }
+    // Usar un umbral para evitar movimientos pequeños
+    const threshold = 30; // Puedes ajustar este valor para hacerlo más sensible o menos sensible
 
-    // Evitar que el movimiento táctil continúe si el usuario deja de deslizar
+    if (Math.abs(diffX) > threshold || Math.abs(diffY) > threshold) {
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX > 0 && direction !== "LEFT") direction = "RIGHT";  // Deslizar a la derecha
+            if (diffX < 0 && direction !== "RIGHT") direction = "LEFT";  // Deslizar a la izquierda
+        } else {
+            if (diffY > 0 && direction !== "UP") direction = "DOWN";  // Deslizar hacia abajo
+            if (diffY < 0 && direction !== "DOWN") direction = "UP";  // Deslizar hacia arriba
+        }
+
+        // Evitar que el movimiento táctil continúe si el usuario deja de deslizar
+        touchStartX = null;
+        touchStartY = null;
+    }
+});
+
+document.addEventListener("touchend", () => {
     touchStartX = null;
     touchStartY = null;
 });
+
 
 // Iniciar el ciclo de animación
 requestAnimationFrame(gameLoop);
