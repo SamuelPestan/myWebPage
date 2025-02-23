@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="sudoku.css">
+</head>
+<body>
+    <div class="gameContainer">
+        <a href="../index.html">
+            <img src="../assets/ic_logo.png" alt="Imagen de portada" id="portada">
+        </a>
+        <div class="difficulty-container">
+            <select id="difficulty">
+                <option value="easy">Fácil</option>
+                <option value="medium">Medio</option>
+                <option value="hard">Difícil</option>
+                <option value="easier">Muy Fácil</option>
+            </select>
+            <button id="startGame">Iniciar Juego</button>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+    </div>
+    <script src="sudoku.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: radial-gradient(circle, #333, #111 80%);
+}
+
+#portada {
+    width: 100px; 
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+canvas {
+    border: 5px solid #5100ff;
+    background-color: black;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    canvas {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+    canvas {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+.gameContainer {
+    position: relative; /* Contenedor principal que mantiene a la puntuación y al canvas juntos */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#restartButton {
+    padding: 10px 20px;
+    background-color: #5100ff;
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: none; /* Inicialmente oculto */
+}
+
+#restartButton:hover {
+    background-color: #3700cc; /* Color más oscuro al pasar el ratón */
+}
+
+#restartButton:active {
+    transform: scale(0.98); /* Efecto de "presionar" el botón */
+}
+
+.number-menu {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.number-menu button {
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+    font-size: 18px;
+    color: white;
+    background: #333;
+    border: none;
+    cursor: pointer;
+}
+
+.number-menu button:hover {
+    background: #666;
+}
+
+/* Estilo general del contenedor de dificultad */
+.difficulty-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+    color: white;
+    width: 100%;
+}
+
+/* Estilo para el label */
+.difficulty-container label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para el selector */
+.difficulty-container select {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    border: 2px solid #555;
+    border-radius: 5px;
+    width: 150px;
+    cursor: pointer;
+}
+
+/* Estilo para el botón de inicio */
+.difficulty-container button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #5100ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Cambiar color del botón al pasar el cursor */
+.difficulty-container button:hover {
+    background-color: #7e00ff;
+}
