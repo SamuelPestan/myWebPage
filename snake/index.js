@@ -45,10 +45,22 @@ function generateFood() {
     return newFoodPosition;
 }
 
+function drawBackground() {
+    const gridSize = 20; // Tamaño de los cuadrados
+    for (let x = 0; x < canvas.width; x += gridSize) {
+        for (let y = 0; y < canvas.height; y += gridSize) {
+            ctx.fillStyle = (x / gridSize + y / gridSize) % 2 === 0 ? "#000000" : "#111"; // Alternar colores
+            ctx.fillRect(x, y, gridSize, gridSize);
+        }
+    }
+}
+
 function draw() {
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
+    drawBackground();
+
     if (foodImage.complete) {
         // Dibujar la imagen de la comida solo si ha terminado de cargar
         ctx.drawImage(foodImage, food.x, food.y, size, size);
@@ -57,12 +69,7 @@ function draw() {
     // Dibujar la serpiente
     snake.forEach((segment, index) => {
         // Cambiar el color de la cabeza de la serpiente (primer segmento)
-        if (index === 0) {
-            ctx.fillStyle = "#3d00cc";  // Cabeza más oscura
-        } else {
-            ctx.fillStyle = "#5100ff";  // Cuerpo de la serpiente
-        }
-
+        ctx.fillStyle = index === 0 ? "#3d00cc" : "#5100ff";
         ctx.fillRect(segment.x, segment.y, size, size);
         ctx.strokeStyle = "black";
         ctx.strokeRect(segment.x, segment.y, size, size);

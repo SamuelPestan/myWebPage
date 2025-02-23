@@ -44,9 +44,7 @@ canvas {
 
 .scoreContainer {
     display: flex;
-    align-items: center;
-    top: 10px;
-    left: 10px;
+    justify-content: space-between;
     color: white;
     font-family: Arial, sans-serif;
 }
